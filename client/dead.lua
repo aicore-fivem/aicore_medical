@@ -29,10 +29,10 @@ function OnDeath(attacker, weapon)
     SetDeathState(sharedConfig.deathState.DEAD)
     WaitForPlayerToStopMoving()
 
+    SetCurrentPedWeapon(cache.ped, `WEAPON_UNARMED`, true)
     CreateThread(function()
         while DeathState == sharedConfig.deathState.DEAD do
             DisableControls()
-            SetCurrentPedWeapon(cache.ped, `WEAPON_UNARMED`, true)
             Wait(0)
         end
     end)
